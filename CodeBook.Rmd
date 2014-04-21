@@ -59,7 +59,7 @@ print(dat[1:6, 1:4])
 ```
 
 ### Point 2)
-In order to extract only the mean and standard devation for each measured feature, the *grep* function has been used on the column names of the *dat* data.frame with a regex pattern including "mean" (not followed by the letter F to avoid _meanFreq_) or "std". The resulting vector is then truncated to ignore the angle feature. Finally, a second data.frame _dat2_ is created by subsetting _dat_.
+In order to extract only the mean and standard deviation for each measured feature, the *grep* function has been used on the column names of the *dat* data.frame with a regex pattern including "mean" (not followed by the letter F to avoid _meanFreq_) or "std". The resulting vector is then truncated to ignore the angle feature. Finally, a second data.frame _dat2_ is created by subsetting _dat_.
 
 ```{r}
 dat_col <- colnames(dat)
@@ -68,7 +68,7 @@ dat2 <- dat[, c(1, 2, idx_mean[1:66])] ### ignore the angle features
 ```
 
 ### Point 5) 
-It is easier to perfrom task _5_ before *3* and *4*, because of *ddply* that has strange behavior with factors.
+It is easier to perform task _5_ before *3* and *4*, because of *ddply* that has strange behavior with factors.
 
 Using the *ddply* function, the data set can be split with the two variables *subject, y* and apply the mean function to each column of the split _data.frame_.
 
