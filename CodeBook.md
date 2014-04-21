@@ -86,7 +86,7 @@ print(dat[1:6, 1:4])
 
 
 ### Point 2)
-In order to extract only the mean and standard devation for each measured feature, the *grep* function has been used on the column names of the *dat* data.frame with a regex pattern including "mean" (not followed by the letter F to avoid _meanFreq_) or "std". The resulting vector is then truncated to avoid the angle feature. Finally, a second data.frame _dat2_ is created by subsetting _dat_.
+In order to extract only the mean and standard devation for each measured feature, the *grep* function has been used on the column names of the *dat* data.frame with a regex pattern including "mean" (not followed by the letter F to avoid _meanFreq_) or "std". The resulting vector is then truncated to ignore the angle feature. Finally, a second data.frame _dat2_ is created by subsetting _dat_.
 
 
 ```r
@@ -130,77 +130,3 @@ write.csv(dat3, file = "tidy_SamsungDS_Coursera.csv")
 
 ## Conclusion
 The Samsung data set has been filtered and a tidy data set has been created from it.
-
-
-```r
-# set global chunk options: images will be 7x5 inches
-library("knitr")
-opts_chunk$set(fig.width = 7, fig.height = 5)
-```
-
-
-Now we write some code chunks in this markdown file:
-
-
-```r
-x <- 1 + 1  # a simple calculator
-set.seed(123)
-rnorm(5)  # boring random numbers
-```
-
-```
-## [1] -0.56048 -0.23018  1.55871  0.07051  0.12929
-```
-
-
-We can also produce plots:
-
-
-```r
-par(mar = c(4, 4, 0.1, 0.1))
-with(mtcars, {
-    plot(mpg ~ hp, pch = 20, col = "darkgray")
-    lines(lowess(hp, mpg))
-})
-```
-
-![plot of chunk graphics](figure/graphics.png) 
-
-
-## Inline code
-
-Inline R code is also supported, e.g. the value of `x` is 2, and 2 &times; &pi;
-= 6.2832.
-
-## Math
-
-LaTeX math as usual: $f(\alpha, \beta) \propto x^{\alpha-1}(1-x)^{\beta-1}$.
-
-## Misc
-
-You can indent code chunks so they can nest within other environments such as lists.
-
-1. the area of a circle with radius x
-    
-    ```r
-    pi * x^2
-    ```
-    
-    ```
-    ## [1] 12.57
-    ```
-
-2. OK, that is great
-
-To compile me, use
-
-
-```r
-library(knitr)
-knit("knitr-minimal.Rmd")
-```
-
-
-## Conclusion
-
-Markdown is super easy to write. Go to **knitr** [homepage](http://yihui.name/knitr) for details.
